@@ -19,7 +19,7 @@ public class BasePage {
     private WebDriverWait wait;
     private WebElement exampleElement;
 
-    @BeforeTest
+
     public void startTest() {
         ChromeOptions options = new ChromeOptions();
         WebDriverManager.chromedriver().setup();
@@ -41,7 +41,7 @@ public class BasePage {
 
     }
 
-    @AfterClass
+
     public void finishTest() {
         driver.quit();
     }
