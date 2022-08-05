@@ -1,4 +1,4 @@
 package by.itacademy.spotify.api;
 
-public class ApiTest {
+public class BaseTest {
 }
