@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverSingleton {
-
     private static WebDriver driver;
 
     private DriverSingleton() {
@@ -13,12 +12,15 @@ public class DriverSingleton {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            WebDriverManager.chromedriver().setup();
+            WebDriverManager
+                    .chromedriver()
+                    .setup();
             driver = new ChromeDriver();
             driver.manage()
                     .window()
                     .maximize();
         }
+
         return driver;
     }
 
