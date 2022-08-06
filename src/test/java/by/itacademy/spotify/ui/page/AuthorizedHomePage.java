@@ -5,12 +5,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class AuthorizedHomePage extends BasePage {
     @FindBy(xpath = "//span[@data-testid='user-widget-name']")
-    private WebElement userName; //UserName
+    private WebElement userName;
 
-    @FindBy(xpath = "//button[@data-testid='create-playlist-button']") //WebElement  Create Playlist
+    @FindBy(xpath = "//button[@data-testid='create-playlist-button']")
     private WebElement buttonCreatePlaylist;
 
-    @FindBy(xpath = "//a[@href='/search']") //WebElement link Search
+    @FindBy(xpath = "//a[@href='/search']")
     private WebElement buttonSearch;
 
     public void clickCreatePlaylistAuthorizedHomePage() {
