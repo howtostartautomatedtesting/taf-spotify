@@ -8,14 +8,14 @@ public class SearchPage extends AuthorizedHomePage {
     @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 hWmToD ellipsis-one-line']")
     private WebElement searchButton;
     @FindBy(xpath = "//input[@data-testid='search-input']")
-    private WebElement inputEnter;
+    private WebElement inputField;
 
     public void clickSearchButton() {
         searchButton.click();
     }
 
-    public SearchPage inputNameArtist(String name) {
-        inputEnter.sendKeys(name);
+    public SearchPage inputFieldNameArtist(String name) {
+        inputField.sendKeys(name);
         return this;
     }
 }
