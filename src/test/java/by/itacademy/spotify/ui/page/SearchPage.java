@@ -6,16 +6,16 @@ import org.openqa.selenium.support.FindBy;
 public class SearchPage extends AuthorizedHomePage {
 
     @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 hWmToD ellipsis-one-line']")
-    private WebElement clickSearch;
+    private WebElement searchButton;
     @FindBy(xpath = "//input[@data-testid='search-input']")
-    private WebElement inputNameArtist;
+    private WebElement inputEnter;
 
-    public void clickSearch() {
-        clickSearch.click();
+    public void clickSearchButton() {
+        searchButton.click();
     }
 
     public SearchPage inputNameArtist(String name) {
-        inputNameArtist.sendKeys(name);
+        inputEnter.sendKeys(name);
         return this;
     }
 }
