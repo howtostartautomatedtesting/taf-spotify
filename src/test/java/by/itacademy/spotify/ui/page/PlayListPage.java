@@ -5,16 +5,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class PlayListPage extends AuthorizedHomePage {
     @FindBy(xpath = "//button[@data-testid='more-button']")
-    private WebElement buttonMoreOptionsPlaylist;
+    private WebElement buttonMoreOptions;
     @FindBy(xpath = "//button[@class='wCkmVGEQh3je1hrbsFBY']")
     private WebElement buttonPlaylistName;
 
-    public void clickButtonPlaylistName() {
+    public void clickPlaylistName() {
         buttonPlaylistName.click();
     }
 
-    public void clickButtonMoreOptionsPlaylist() {
-        buttonMoreOptionsPlaylist.click();
+    public void clickMoreOptions() {
+        buttonMoreOptions.click();
     }
 }
-

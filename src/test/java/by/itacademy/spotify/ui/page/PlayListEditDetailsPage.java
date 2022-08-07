@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class PlayListEditDetailsPage extends PlayListPage {
 
-    @FindBy(xpath="//div[@data-testid='playlist-edit-details-modal']/div[1]/h1")
+    @FindBy(xpath = "//div[@data-testid='playlist-edit-details-modal']/div[1]/h1")
     private WebElement headerEditDetails;
 
     @FindBy(xpath = "//input[@data-testid='playlist-edit-details-name-input']")
@@ -14,12 +14,12 @@ public class PlayListEditDetailsPage extends PlayListPage {
     @FindBy(xpath = "//button[@data-testid='playlist-edit-details-save-button']")
     private WebElement buttonSave;
 
-    public void inputNameClearAndType(String name) {
+    public void typeName(String name) {
         inputName.clear();
         inputName.sendKeys(name);
     }
 
-    public void buttonSaveClick() {
+    public void clickSave() {
         buttonSave.click();
     }
 }

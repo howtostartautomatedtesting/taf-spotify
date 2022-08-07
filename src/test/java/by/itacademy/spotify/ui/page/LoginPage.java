@@ -4,30 +4,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
+
     @FindBy(xpath = "//label[@for='login-username']")
-    private WebElement usernameLabel;
-
+    private WebElement labelUsername;
     @FindBy(xpath = "//label[@for='login-password']")
-    private WebElement passwordLabel;
-
+    private WebElement labelPassword;
     @FindBy(id = "login-username")
-    private WebElement usernameInput;
-
+    private WebElement inputUsername;
     @FindBy(id = "login-password")
-    private WebElement passwordInput;
-
+    private WebElement inputPassword;
     @FindBy(id = "login-button")
-    private WebElement loginButton;
+    private WebElement buttonLogin;
 
-    public void fillUsernameInput(String username) {
-        usernameInput.sendKeys(username);
+    public void typeUsername(String username) {
+        inputUsername.sendKeys(username);
     }
 
-    public void fillPasswordInput(String password) {
-        passwordInput.sendKeys(password);
+    public void typePassword(String password) {
+        inputPassword.sendKeys(password);
     }
 
-    public void clickLoginButton() {
-        loginButton.click();
+    public void clickLogin() {
+        buttonLogin.click();
     }
 }
