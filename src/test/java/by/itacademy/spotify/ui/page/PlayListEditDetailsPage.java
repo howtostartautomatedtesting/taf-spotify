@@ -32,7 +32,7 @@ public class PlayListEditDetailsPage extends PlayListPage {
     @FindBy(xpath = "//button[@data-testid ='edit-image-button']")
     private WebElement photoPlayList;
 
-    public void clickDefaultPlayList() {
+    public void clickButtonDefaultPlayList() {
         actions.
                 contextClick(defaultPlaylist).
                 build().
