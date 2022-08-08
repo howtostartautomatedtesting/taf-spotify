@@ -15,10 +15,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage openPage() {
-        WebDriverManager.chromedriver().setup();
-        driver.manage().window().maximize();
         driver.get(BASE_URL);
-        driver = new ChromeDriver();
         return this;
     }
 }
