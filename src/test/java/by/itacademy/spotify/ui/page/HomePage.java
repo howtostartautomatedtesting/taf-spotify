@@ -5,10 +5,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@data-testid='login-button']")
-    WebElement buttonLogIn;
+    private WebElement buttonLogIn;
 
-    public HomePage clickLoginIn() {
-        buttonLogIn.click();
+    public HomePage clickLogin(){
         return this;
     }
 
