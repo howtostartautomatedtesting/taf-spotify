@@ -1,14 +1,21 @@
 package by.itacademy.spotify.ui.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.List;
 
 public class PlayListEditDetailsPage extends PlayListPage {
 
     private final By NEW_USER_NAME_PLAYLIST = By.xpath("//div[@class='AINMAUImkAYJd4ertQxy']");
-
+    Actions actions = new Actions(driver);
+    @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f']")
+    private WebElement defaultPlaylist;
+    @FindBy(xpath = "//span[contains(text(), 'Изменение сведений')]  ")
+    private WebElement buttonChangingDetails;
     @FindBy(xpath = "//div[@data-testid='playlist-edit-details-modal']/div[1]/h1")
     private WebElement headerEditDetails;
     @FindBy(xpath = "//input[@data-testid='playlist-edit-details-name-input']")
@@ -25,6 +32,22 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement nameLabelPhoto;
     @FindBy(xpath = "//button[@data-testid ='edit-image-button']")
     private WebElement photoPlayList;
+
+    public void clickDefaultPlayList() {
+        actions.
+                contextClick(defaultPlaylist).
+                build().
+                perform();
+    }
+
+    public void clickButtonChangingDetails() {
+        actions.contextClick(buttonChangingDetails).
+                sendKeys(Keys.ARROW_DOWN).
+                sendKeys(Keys.ARROW_DOWN).
+                sendKeys(Keys.RETURN).
+                build().
+                perform();
+    }
 
     public void typeName(String name) {
         inputName.clear();
