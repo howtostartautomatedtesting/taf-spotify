@@ -11,7 +11,6 @@ import java.util.List;
 public class PlayListEditDetailsPage extends PlayListPage {
 
     private final By NEW_USER_NAME_PLAYLIST = By.xpath("//div[@class='AINMAUImkAYJd4ertQxy']");
-    Actions actions = new Actions(driver);
     @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f']")
     private WebElement defaultPlaylist;
     @FindBy(xpath = "//span[contains(text(), 'Изменение сведений')]  ")
@@ -32,6 +31,8 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement nameLabelPhoto;
     @FindBy(xpath = "//button[@data-testid ='edit-image-button']")
     private WebElement photoPlayList;
+
+    Actions actions = new Actions(driver);
 
     public void clickDefaultPlayList() {
         actions.
