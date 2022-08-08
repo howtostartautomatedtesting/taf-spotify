@@ -1,7 +1,10 @@
 package by.itacademy.spotify.ui;
 
+import by.itacademy.spotify.ui.page.HomePage;
+import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListEditDetailsPage;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
@@ -9,11 +12,25 @@ public class PlayListEditDetailsPageTest extends BaseTest {
     private final String userInputNamePlayList = "Modified Name ";
     private final String userInputDescriptionPlayList = "This is a playlist description";
     private final String nameLabelPhoto = "Выбрать фото";
-    PlayListEditDetailsPage playListEditDetailsPage;
+    PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
+    HomePage homePage = new HomePage();
+    LoginPage login = new LoginPage();
+
+    @BeforeTest
+    public void testActionsStepsUser() {
+        homePage.openPage();
+        login.typeUsername("itacamyspotifytest@gmail.com");
+        login.typePassword("Cvbn456))");
+        login.clickLogin();
+        playListEditDetailsPage.clickButtonDefaultPlayList();
+        playListEditDetailsPage.clickButtonChangingDetails();
+        playListEditDetailsPage.typeName(userInputNamePlayList);
+        playListEditDetailsPage.typeDescription(userInputDescriptionPlayList);
+
+    }
 
     @Test
     public void testEditDetailsWithCorrectData() {
-        playListEditDetailsPage = new PlayListEditDetailsPage();
         Assert.assertTrue(playListEditDetailsPage.isDisplayedContextMenu());
         Assert.assertEquals(nameModalWindow, playListEditDetailsPage.getNameModalWindow());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
