@@ -17,6 +17,7 @@ public class LoginPage extends BasePage{
     private WebElement buttonLogin;
 
     public void typeUsername(String username) {
+        waitForElementToBeClickable(inputUsername);
         inputUsername.sendKeys(username);
     }
 
