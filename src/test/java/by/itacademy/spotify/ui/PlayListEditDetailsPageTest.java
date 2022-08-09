@@ -5,6 +5,7 @@ import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListEditDetailsPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
@@ -15,7 +16,7 @@ public class PlayListEditDetailsPageTest extends BaseTest {
     HomePage homePage = new HomePage();
     LoginPage login = new LoginPage();
 
-    @BeforeClass
+    @BeforeTest
     public void testActionsStepsUser() {
         homePage.openPage();
         login.typeUsername("itacamyspotifytest@gmail.com");

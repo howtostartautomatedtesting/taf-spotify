@@ -11,7 +11,6 @@ import java.util.List;
 public class PlayListEditDetailsPage extends PlayListPage {
 
     private final By NEW_USER_NAME_PLAYLIST = By.xpath("//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f']");
-    Actions actions = new Actions(driver);
 
     @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f'][1]")
     private WebElement defaultPlaylist;
@@ -33,6 +32,8 @@ public class PlayListEditDetailsPage extends PlayListPage {
 
     @FindBy(xpath = "//div[@id='onetrust-close-btn-container']//button")
     private WebElement buttonCookie;
+
+    Actions actions = new Actions(driver);
 
     public void clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
