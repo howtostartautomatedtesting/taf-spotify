@@ -32,6 +32,7 @@ public class LoginPage extends BasePage {
     private WebElement errorPassword;
 
     public LoginPage typeUsername(String username) {
+        waitForElementToBeClickable(inputUsername);
         inputUsername.click();
         inputUsername.sendKeys(username);
         return this;
