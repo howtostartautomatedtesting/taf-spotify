@@ -16,15 +16,13 @@ public class DriverSingleton {
         options = new ChromeOptions()
                 .addArguments("--lang=en");
         if (driver == null) {
-            WebDriverManager
-                    .chromedriver()
+            WebDriverManager.chromedriver()
                     .setup();
             driver = new ChromeDriver(options);
             driver.manage()
                     .window()
                     .maximize();
         }
-
         return driver;
     }
 
