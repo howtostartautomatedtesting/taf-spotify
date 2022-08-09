@@ -15,8 +15,8 @@ public class LoginPageTest extends BaseTest {
     public void testLoginWithEmptyCredentials() {
         List<String> expectedErrorMessageText = new ArrayList<>();
         List<String> actualErrorMessageText = new ArrayList<>();
-        String expectedErrorUsernameText = "¬ведите им€ пользовател€ или адрес электронной почты из аккаунта Spotify.";
-        String expectedErrorPasswordText = "¬ведите пароль.";
+        String expectedErrorUsernameText = "Please enter your Spotify username or email address.";
+        String expectedErrorPasswordText = "Please enter your password.";
         expectedErrorMessageText.add(expectedErrorUsernameText);
         expectedErrorMessageText.add(expectedErrorPasswordText);
         new HomePage().clickLogIn();
@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseTest {
                 .clearPassword()
                 .clickLogin();
         actualErrorMessageText.add(loginPage.getErrorUsernameText());
-        actualErrorMessageText.add(loginPage.getErrorUPasswordTest());
+        actualErrorMessageText.add(loginPage.getErrorUPasswordText());
         Assert.assertEquals(expectedErrorMessageText, actualErrorMessageText);
     }
 }

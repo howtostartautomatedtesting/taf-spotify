@@ -10,12 +10,9 @@ public class BaseTest {
     protected WebDriver webDriver;
 
     @BeforeMethod
-    public void beforeTest(){
+    public void beforeTest() {
         webDriver = DriverSingleton.getDriver();
         webDriver.get(URL);
-        webDriver.manage()
-                .window()
-                .maximize();
     }
 
     @AfterMethod
