@@ -1,26 +1,15 @@
 package by.itacademy.spotify.ui;
 
-import by.itacademy.spotify.ui.driver.DriverSingleton;
 import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.utils.Random;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LoginPageTest extends BaseTest {
-    private static final String URL = "https://open.spotify.com/";
-    protected WebDriver webDriver;
-
-    @BeforeMethod
-    public void beforeTest() {
-        webDriver = DriverSingleton.getDriver();
-        webDriver.get(URL);
-    }
 
     @Test
     public void testLoginWithEmptyCredentials() {
@@ -30,7 +19,7 @@ public class LoginPageTest extends BaseTest {
         String expectedErrorPasswordText = "Please enter your password.";
         expectedErrorMessageText.add(expectedErrorUsernameText);
         expectedErrorMessageText.add(expectedErrorPasswordText);
-        new HomePage().clickLogIn();
+        new HomePage().openPage().clickLogIn();
 
         LoginPage loginPage = new LoginPage();
         loginPage.waitForLoginButton()
