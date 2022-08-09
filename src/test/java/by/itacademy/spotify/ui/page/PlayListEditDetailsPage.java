@@ -69,7 +69,7 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public String getUserInputNamePlayList() {
-        return inputName.getAttribute("innerHTML");
+        return inputName.getAttribute("value");
     }
 
     public String getUserInputDescriptionPlayList() {
@@ -85,7 +85,6 @@ public class PlayListEditDetailsPage extends PlayListPage {
                 resultNamePlayList = newUserNamePlayList;
             }
         }
-
         return resultNamePlayList;
     }
 }
