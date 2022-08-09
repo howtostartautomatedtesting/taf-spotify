@@ -51,14 +51,17 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public void clickSave() {
-        waitForVisibilityOfElement(buttonSave);
         buttonSave.click();
-        waitForVisibilityOfElement(defaultPlaylist);
+
     }
 
     public void clickButtonCookieClose() {
         waitForVisibilityOfElement(buttonCookie);
         buttonCookie.click();
+    }
+
+    public boolean isDisplayedHeaderDetails() {
+        return headerEditDetails.isDisplayed();
     }
 
     public String getUserInputNamePlayList() {

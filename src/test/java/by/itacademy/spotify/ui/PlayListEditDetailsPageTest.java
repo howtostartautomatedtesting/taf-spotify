@@ -32,6 +32,7 @@ public class PlayListEditDetailsPageTest extends BaseTest {
 
     @Test
     public void testEditDetailsWithCorrectData() {
+        Assert.assertTrue(playListEditDetailsPage.isDisplayedHeaderDetails());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
         Assert.assertEquals(userInputDescriptionPlayList, playListEditDetailsPage.getUserInputDescriptionPlayList());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList));
