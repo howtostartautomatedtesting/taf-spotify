@@ -4,19 +4,19 @@ import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListEditDetailsPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
     private final String userInputNamePlayList = "Modified Name";
     private final String userInputDescriptionPlayList = "This is a playlist description";
 
-    PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
-    HomePage homePage = new HomePage();
-    LoginPage login = new LoginPage();
 
-    @BeforeTest
-    public void testActionsStepsUser() {
+    @Test
+    public void testEditDetailsWithCorrectData() {
+        PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
+        HomePage homePage = new HomePage();
+        LoginPage login = new LoginPage();
+
         homePage.openPage();
         playListEditDetailsPage.clickButtonUserLogIn();
         login.typeUsername("itacamyspotifytest@gmail.com");
@@ -28,10 +28,7 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         playListEditDetailsPage.typeDescription(userInputDescriptionPlayList);
         playListEditDetailsPage.clickSave();
 
-    }
 
-    @Test
-    public void testEditDetailsWithCorrectData() {
         Assert.assertTrue(playListEditDetailsPage.isDisplayedHeaderDetails());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
         Assert.assertEquals(userInputDescriptionPlayList, playListEditDetailsPage.getUserInputDescriptionPlayList());
