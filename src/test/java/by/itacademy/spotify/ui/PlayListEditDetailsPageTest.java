@@ -8,10 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
-    private final String nameModalWindow = "Изменить сведения";
     private final String userInputNamePlayList = "Modified Name";
     private final String userInputDescriptionPlayList = "This is a playlist description";
-    private final String nameLabelPhoto = "Выбрать фото";
 
     PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
     HomePage homePage = new HomePage();
@@ -34,12 +32,8 @@ public class PlayListEditDetailsPageTest extends BaseTest {
 
     @Test
     public void testEditDetailsWithCorrectData() {
-        Assert.assertTrue(playListEditDetailsPage.isDisplayedContextMenu());
-        Assert.assertEquals(nameModalWindow, playListEditDetailsPage.getNameModalWindow());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
         Assert.assertEquals(userInputDescriptionPlayList, playListEditDetailsPage.getUserInputDescriptionPlayList());
-        Assert.assertEquals(playListEditDetailsPage.getNameLabelPhoto(), nameLabelPhoto);
-        Assert.assertTrue(playListEditDetailsPage.isDisplayedPhotoPlayList());
-        Assert.assertEquals(playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList), userInputNamePlayList);
+        Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList));
     }
 }
