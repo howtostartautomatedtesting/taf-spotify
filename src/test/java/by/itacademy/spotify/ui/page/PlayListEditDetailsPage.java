@@ -25,8 +25,6 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement buttonChangeInfoPlayList;
     @FindBy(xpath = "//div[@id='onetrust-close-btn-container']//button")
     private WebElement buttonCookie;
-    @FindBy(xpath = "//button[@data-testid='login-button']")
-    private WebElement buttonUserLogIn;
 
     public void clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
@@ -37,11 +35,6 @@ public class PlayListEditDetailsPage extends PlayListPage {
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ENTER).build().perform();
-    }
-
-    public void clickButtonUserLogIn() {
-        waitForVisibilityOfElement(buttonUserLogIn);
-        buttonUserLogIn.click();
     }
 
     public void typeName(String name) {

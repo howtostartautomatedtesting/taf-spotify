@@ -17,8 +17,8 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         HomePage homePage = new HomePage();
         LoginPage login = new LoginPage();
 
-        homePage.openPage();
-        playListEditDetailsPage.clickButtonUserLogIn();
+        homePage.openPage().clickLogIn();
+        login.waitForLoginButton();
         login.typeUsername("itacamyspotifytest@gmail.com");
         login.typePassword("Cvbn456))");
         login.clickLogin();
