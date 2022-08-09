@@ -8,8 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
-    private final String userInputNamePlayList = Random.generateText();
-    private final String userInputDescriptionPlayList = Random.generateText();
+    private final static String userInputNamePlayList = Random.generateText();
+    private final static String userInputDescriptionPlayList = Random.generateText();
 
     @Test
     public void testEditDetailsWithCorrectData() {
@@ -27,7 +27,6 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         playListEditDetailsPage.typeName(userInputNamePlayList);
         playListEditDetailsPage.typeDescription(userInputDescriptionPlayList);
         playListEditDetailsPage.clickSave();
-
 
         Assert.assertTrue(playListEditDetailsPage.isDisplayedHeaderDetails());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
