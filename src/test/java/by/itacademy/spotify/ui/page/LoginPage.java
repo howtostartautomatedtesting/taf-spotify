@@ -43,6 +43,11 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public void clickButtonWebPlayer() {
+        waitForVisibilityOfElement(buttonWebPlayer);
+        buttonWebPlayer.click();
+    }
+
     public void clickLogin() {
         buttonLogin.click();
     }
