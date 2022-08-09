@@ -4,7 +4,6 @@ import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListEditDetailsPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 

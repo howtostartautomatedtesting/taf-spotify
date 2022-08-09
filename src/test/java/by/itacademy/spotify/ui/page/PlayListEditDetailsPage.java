@@ -11,29 +11,21 @@ import java.util.List;
 public class PlayListEditDetailsPage extends PlayListPage {
 
     private final By NEW_USER_NAME_PLAYLIST = By.xpath("//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f']");
-
+    Actions actions = new Actions(driver);
     @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f'][1]")
     private WebElement defaultPlaylist;
-
     @FindBy(xpath = "//div[@data-testid='playlist-edit-details-modal']/div[1]/h1")
     private WebElement headerEditDetails;
-
     @FindBy(xpath = "//input[@data-testid='playlist-edit-details-name-input']")
     private WebElement inputName;
-
     @FindBy(xpath = "//textarea[@data-testid='playlist-edit-details-description-input']                                                                                        ")
     private WebElement inputDescription;
-
     @FindBy(xpath = "//button[@data-testid='playlist-edit-details-save-button']")
     private WebElement buttonSave;
-
-    @FindBy(xpath = "//span[contains(text(), 'Изменение сведений')]")
+    @FindBy(xpath = "//li[@class='DuEPSADpSwCcO880xjUG'][4]")
     private WebElement buttonChangeInfoPlayList;
-
     @FindBy(xpath = "//div[@id='onetrust-close-btn-container']//button")
     private WebElement buttonCookie;
-
-    Actions actions = new Actions(driver);
 
     public void clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
