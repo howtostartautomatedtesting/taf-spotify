@@ -4,7 +4,6 @@ import by.itacademy.spotify.ui.driver.DriverSingleton;
 import by.itacademy.spotify.ui.page.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SearchPageTest extends BaseTest {
@@ -15,23 +14,22 @@ public class SearchPageTest extends BaseTest {
     private final String USERNAME = "itacamyspotifytest@gmail.com";
     private final String PASSWORD = "Cvbn456))";
 
-    @BeforeMethod
-    public void beforeTest() {
+    @Test
+    public void testSearchAndAddSong() {
+        // GIVEN
         webDriver = DriverSingleton.getDriver();
         webDriver.get(URL);
         webDriver.manage()
                 .window()
                 .maximize();
-    }
-
-    @Test
-    public void testSearchAndAddSong() {
         HomePage homePage = new HomePage();
         homePage.clickLogIn();
         LoginPage loginPage = new LoginPage();
         loginPage.typeUsername(USERNAME);
         loginPage.typePassword(PASSWORD);
         loginPage.clickLogin();
+
+        // WHEN
         AuthorizedHomePage authorizedHomePage = new AuthorizedHomePage();
         authorizedHomePage.clickSearch();
         SearchPage searchPage = new SearchPage();
@@ -39,6 +37,8 @@ public class SearchPageTest extends BaseTest {
                 .clickButtonMoreFirstRow()
                 .clickButtonAddToPlaylist()
                 .clickButtonAddToTestPlayList();
+
+        // THEN
         authorizedHomePage.clickButtonLibrary();
         PlayListPage playListPage = new PlayListPage();
         playListPage.clickButtonTestPlaylist();
