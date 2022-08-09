@@ -3,13 +3,13 @@ package by.itacademy.spotify.ui;
 import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListEditDetailsPage;
+import by.itacademy.spotify.ui.utils.Random;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
-    private final String userInputNamePlayList = "Modified Name";
-    private final String userInputDescriptionPlayList = "This is a playlist description";
-
+    private final String userInputNamePlayList = Random.generateText();
+    private final String userInputDescriptionPlayList = Random.generateText();
 
     @Test
     public void testEditDetailsWithCorrectData() {
