@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class PlayListEditDetailsPage extends PlayListPage {
-
     private final By NEW_USER_NAME_PLAYLIST = By.xpath("//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f']");
     Actions actions = new Actions(driver);
     @FindBy(xpath = "//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f'][1]")
@@ -26,6 +25,8 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement buttonChangeInfoPlayList;
     @FindBy(xpath = "//div[@id='onetrust-close-btn-container']//button")
     private WebElement buttonCookie;
+    @FindBy(xpath = "//button[@data-testid='login-button']")
+    private WebElement buttonUserLogIn;
 
     public void clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
@@ -36,6 +37,11 @@ public class PlayListEditDetailsPage extends PlayListPage {
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ENTER).build().perform();
+    }
+
+    public void clickButtonUserLogIn() {
+        waitForVisibilityOfElement(buttonUserLogIn);
+        buttonUserLogIn.click();
     }
 
     public void typeName(String name) {
@@ -61,7 +67,8 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public boolean isDisplayedHeaderDetails() {
-        return headerEditDetails.isDisplayed();
+        waitForVisibilityOfElement(headerEditDetails);
+        return headerEditDetails.isEnabled();
     }
 
     public String getUserInputNamePlayList() {
