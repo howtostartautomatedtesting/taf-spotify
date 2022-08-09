@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class PlayListEditDetailsPageTest extends BaseTest {
     private final String nameModalWindow = "Изменить сведения";
-    private final String userInputNamePlayList = "Modified Name ";
+    private final String userInputNamePlayList = "Modified Name";
     private final String userInputDescriptionPlayList = "This is a playlist description";
     private final String nameLabelPhoto = "Выбрать фото";
 
@@ -24,6 +24,7 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         login.typePassword("Cvbn456))");
         login.clickLogin();
         login.clickButtonWebPlayer();
+        playListEditDetailsPage.clickButtonCookieClose();
         playListEditDetailsPage.clickButtonDefaultPlayList();
         playListEditDetailsPage.typeName(userInputNamePlayList);
         playListEditDetailsPage.typeDescription(userInputDescriptionPlayList);
@@ -37,9 +38,8 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         Assert.assertEquals(nameModalWindow, playListEditDetailsPage.getNameModalWindow());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
         Assert.assertEquals(userInputDescriptionPlayList, playListEditDetailsPage.getUserInputDescriptionPlayList());
-        Assert.assertEquals(nameLabelPhoto, playListEditDetailsPage.getNameLabelPhoto());
+        Assert.assertEquals(playListEditDetailsPage.getNameLabelPhoto(), nameLabelPhoto);
         Assert.assertTrue(playListEditDetailsPage.isDisplayedPhotoPlayList());
-        Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList));
-
+        Assert.assertEquals(playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList), userInputNamePlayList);
     }
 }

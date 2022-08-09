@@ -33,6 +33,9 @@ public class PlayListEditDetailsPage extends PlayListPage {
     @FindBy(xpath = "//span[contains(text(), 'Изменение сведений')]")
     private WebElement buttonChangeInfoPlayList;
 
+    @FindBy(xpath = "//div[@id='onetrust-close-btn-container']//button")
+    private WebElement buttonCookie;
+
     public void clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
         actions.contextClick(defaultPlaylist).build().perform();
@@ -59,18 +62,26 @@ public class PlayListEditDetailsPage extends PlayListPage {
     public void clickSave() {
         waitForVisibilityOfElement(buttonSave);
         buttonSave.click();
+        waitForVisibilityOfElement(defaultPlaylist);
     }
 
+    public void clickButtonCookieClose() {
+         waitForVisibilityOfElement(buttonCookie);
+         buttonCookie.click();
+     }
+
     public boolean isDisplayedContextMenu() {
+        waitForVisibilityOfElement(contextMenu);
         return contextMenu.isDisplayed();
     }
 
     public String getNameModalWindow() {
+        waitForVisibilityOfElement(modalWindow);
         return modalWindow.getText();
     }
 
     public String getUserInputNamePlayList() {
-        return inputName.getText();
+        return inputName.getAttribute("innerHTML");
     }
 
     public String getUserInputDescriptionPlayList() {
@@ -78,16 +89,18 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public String getNameLabelPhoto() {
+        waitForVisibilityOfElement(nameLabelPhoto);
         return nameLabelPhoto.getText();
     }
 
     public boolean isDisplayedPhotoPlayList() {
+        waitForVisibilityOfElement(photoPlayList);
         return photoPlayList.isDisplayed();
     }
 
     public String getNewUserNamePlayList(String newUserNamePlayList) {
         List<WebElement> elementName = driver.findElements(NEW_USER_NAME_PLAYLIST);
-        String resultNamePlayList = "DefaultName";
+        String resultNamePlayList = "Default Name";
         for (WebElement elements : elementName) {
             String userNamePlayList = elements.findElement(NEW_USER_NAME_PLAYLIST).getText();
             if (userNamePlayList.equals(newUserNamePlayList)) {
