@@ -30,10 +30,13 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement nameLabelPhoto;
     @FindBy(xpath = "//button[@data-testid ='edit-image-button']")
     private WebElement photoPlayList;
+    @FindBy(xpath = "//span[contains(text(), 'Изменение сведений')]")
+    private WebElement buttonChangeInfoPlayList;
 
     public void clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
         actions.contextClick(defaultPlaylist).build().perform();
+        waitForVisibilityOfElement(buttonChangeInfoPlayList);
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
