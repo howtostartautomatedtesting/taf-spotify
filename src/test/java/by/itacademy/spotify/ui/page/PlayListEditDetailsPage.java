@@ -39,14 +39,14 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public void typeName(String name) {
-        waitForVisibilityOfElement(inputName);
         inputName.clear();
+        waitForVisibilityOfElement(inputName);
         inputName.sendKeys(name);
     }
 
     public void typeDescription(String description) {
-        waitForVisibilityOfElement(inputDescription);
         inputDescription.clear();
+        waitForVisibilityOfElement(inputDescription);
         inputDescription.sendKeys(description);
     }
 
