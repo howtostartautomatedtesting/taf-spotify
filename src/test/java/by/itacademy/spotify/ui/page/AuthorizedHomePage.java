@@ -11,12 +11,20 @@ public class AuthorizedHomePage extends BasePage {
     private WebElement buttonCreatePlaylist;
     @FindBy(xpath = "//a[@href='/search']")
     private WebElement buttonSearch;
+    @FindBy(xpath = "//a[@href='/collection']")
+    private WebElement buttonLibrary;
 
     public void clickCreatePlaylist() {
         buttonCreatePlaylist.click();
     }
 
     public void clickSearch() {
+        waitForElementToBeClickable(buttonSearch);
         buttonSearch.click();
+    }
+
+    public void clickButtonLibrary() {
+        waitForElementToBeClickable(buttonLibrary);
+        buttonLibrary.click();
     }
 }
