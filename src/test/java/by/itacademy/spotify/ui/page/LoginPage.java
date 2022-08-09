@@ -66,7 +66,7 @@ public class LoginPage extends BasePage {
         return errorUsername.getText();
     }
 
-    public String getErrorUPasswordTest() {
+    public String getErrorUPasswordText() {
         return errorPassword.getText();
     }
 
