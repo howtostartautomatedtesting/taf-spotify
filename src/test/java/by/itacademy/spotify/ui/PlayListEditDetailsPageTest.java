@@ -18,10 +18,10 @@ public class PlayListEditDetailsPageTest extends BaseTest {
     @BeforeTest
     public void testActionsStepsUser() {
         homePage.openPage();
+        playListEditDetailsPage.clickButtonUserLogIn();
         login.typeUsername("itacamyspotifytest@gmail.com");
         login.typePassword("Cvbn456))");
         login.clickLogin();
-        login.clickButtonWebPlayer();
         playListEditDetailsPage.clickButtonCookieClose();
         playListEditDetailsPage.clickButtonDefaultPlayList();
         playListEditDetailsPage.typeName(userInputNamePlayList);
