@@ -15,6 +15,9 @@ public class LoginPage extends BasePage{
     private WebElement inputPassword;
     @FindBy(id = "login-button")
     private WebElement buttonLogin;
+    @FindBy(xpath = "//button[@data-testid='web-player-link']")
+    private WebElement buttonWebPlayer;
+
 
     public void typeUsername(String username) {
         inputUsername.sendKeys(username);
@@ -22,6 +25,11 @@ public class LoginPage extends BasePage{
 
     public void typePassword(String password) {
         inputPassword.sendKeys(password);
+    }
+
+    public void clickButtonWebPlayer() {
+        waitForVisibilityOfElement(buttonWebPlayer);
+        buttonWebPlayer.click();
     }
 
     public void clickLogin() {
