@@ -5,12 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public class PlayListEditDetailsPage extends PlayListPage {
     private final By NEW_USER_NAME_PLAYLIST = By.xpath("//span[@class='Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f']");
-    Actions actions = new Actions(driver);
     @FindBy(xpath = "//li[@data-testid='rootlist-item']")
     private WebElement defaultPlaylist;
     @FindBy(xpath = "//div[@data-testid='playlist-edit-details-modal']/div[1]/h1")
@@ -25,8 +23,9 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement buttonChangeInfoPlayList;
     @FindBy(xpath = "//div[@id='onetrust-close-btn-container']//button")
     private WebElement buttonCookie;
+    Actions actions = new Actions(driver);
 
-    public void clickButtonDefaultPlayList() {
+    public PlayListEditDetailsPage clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
         actions.contextClick(defaultPlaylist).build().perform();
         waitForVisibilityOfElement(buttonChangeInfoPlayList);
@@ -35,28 +34,33 @@ public class PlayListEditDetailsPage extends PlayListPage {
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ENTER).build().perform();
+        return this;
     }
 
-    public void typeName(String name) {
+    public PlayListEditDetailsPage typeName(String name) {
         inputName.clear();
         waitForVisibilityOfElement(inputName);
         inputName.sendKeys(name);
+        return this;
     }
 
-    public void typeDescription(String description) {
+    public PlayListEditDetailsPage typeDescription(String description) {
         inputDescription.clear();
         waitForVisibilityOfElement(inputDescription);
         inputDescription.sendKeys(description);
+        return this;
     }
 
-    public void clickSave() {
+    public PlayListEditDetailsPage clickSave() {
         buttonSave.click();
+        return this;
 
     }
 
-    public void clickButtonCookieClose() {
+    public PlayListEditDetailsPage clickButtonCookieClose() {
         waitForVisibilityOfElement(buttonCookie);
         buttonCookie.click();
+        return this;
     }
 
     public boolean isDisplayedHeaderDetails() {
