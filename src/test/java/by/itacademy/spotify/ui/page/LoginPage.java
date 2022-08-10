@@ -21,9 +21,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = "login-button")
     private WebElement buttonLogin;
-    @FindBy(xpath = "//button[@data-testid='web-player-link']")
-    private WebElement buttonWebPlayer;
-
 
     @FindBy(xpath = "//div[@data-testid='username-error']/p")
     private WebElement errorUsername;
@@ -41,11 +38,6 @@ public class LoginPage extends BasePage {
         waitForElementToBeClickable(inputPassword);
         inputPassword.sendKeys(password);
         return this;
-    }
-
-    public void clickButtonWebPlayer() {
-        waitForVisibilityOfElement(buttonWebPlayer);
-        buttonWebPlayer.click();
     }
 
     public void clickLogin() {
