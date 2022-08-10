@@ -7,6 +7,7 @@ import by.itacademy.spotify.ui.utils.Random;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class PlayListEditDetailsPageTest extends BaseTest {
     private final static String userInputNamePlayList = Random.generateText();
     private final static String userInputDescriptionPlayList = Random.generateText();

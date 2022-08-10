@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.List;
 
 public class PlayListEditDetailsPage extends PlayListPage {
@@ -75,7 +76,7 @@ public class PlayListEditDetailsPage extends PlayListPage {
         List<WebElement> elementName = driver.findElements(NEW_USER_NAME_PLAYLIST);
         String resultNamePlayList = "Default Name";
         for (WebElement elements : elementName) {
-            String userNamePlayList = elements.findElement(NEW_USER_NAME_PLAYLIST).getText();
+            String userNamePlayList = elements.getText();
             if (userNamePlayList.equals(newUserNamePlayList)) {
                 resultNamePlayList = newUserNamePlayList;
             }
