@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
-    CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE};
+    private final CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE};
 
     @FindBy(xpath = "//label[@for='login-username']")
     private WebElement labelUsername;
@@ -21,9 +21,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = "login-button")
     private WebElement buttonLogin;
-    @FindBy(xpath = "//button[@data-testid='web-player-link']")
-    private WebElement buttonWebPlayer;
-
 
     @FindBy(xpath = "//div[@data-testid='username-error']/p")
     private WebElement errorUsername;
@@ -32,33 +29,29 @@ public class LoginPage extends BasePage {
     private WebElement errorPassword;
 
     public LoginPage typeUsername(String username) {
-        inputUsername.click();
+        waitForElementToBeClickable(inputUsername);
         inputUsername.sendKeys(username);
         return this;
     }
 
     public LoginPage typePassword(String password) {
-        inputPassword.click();
+        waitForElementToBeClickable(inputPassword);
         inputPassword.sendKeys(password);
         return this;
     }
 
-    public void clickButtonWebPlayer() {
-        waitForVisibilityOfElement(buttonWebPlayer);
-        buttonWebPlayer.click();
-    }
-
     public void clickLogin() {
+        waitForElementToBeClickable(buttonLogin);
         buttonLogin.click();
     }
 
     public LoginPage clearUsername() {
-        inputUsername.sendKeys(charSequencesDeleteAll);
+        clearInputField(inputUsername);
         return this;
     }
 
     public LoginPage clearPassword() {
-        inputPassword.sendKeys(charSequencesDeleteAll);
+        clearInputField(inputPassword);
         return this;
     }
 
@@ -70,8 +63,8 @@ public class LoginPage extends BasePage {
         return errorPassword.getText();
     }
 
-    public LoginPage waitForLoginButton() {
-        waitForElementToBeClickable(buttonLogin);
+    private LoginPage clearInputField(WebElement inputField) {
+        inputField.sendKeys(charSequencesDeleteAll);
         return this;
     }
 }
