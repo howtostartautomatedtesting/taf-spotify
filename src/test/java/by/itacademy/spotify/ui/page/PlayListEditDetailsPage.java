@@ -38,8 +38,8 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public PlayListEditDetailsPage typeName(String name) {
-        inputName.clear();
         waitForVisibilityOfElement(inputName);
+        inputName.clear();
         inputName.sendKeys(name);
         return this;
     }

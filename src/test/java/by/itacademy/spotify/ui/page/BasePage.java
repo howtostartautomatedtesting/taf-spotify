@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
     protected WebDriver driver;
-    protected final String BASE_URL = "https://accounts.spotify.com/ru/login";
+    protected final String BASE_URL = "https://open.spotify.com/";
     protected final int WAIT_TIMEOUT_SECONDS = 10;
 
     protected BasePage() {
