@@ -1,5 +1,6 @@
 package by.itacademy.spotify.ui;
 
+import by.itacademy.spotify.ui.page.AuthorizedHomePage;
 import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.utils.Random;
@@ -32,5 +33,20 @@ public class LoginPageTest extends BaseTest {
         actualErrorMessageText.add(loginPage.getErrorUsernameText());
         actualErrorMessageText.add(loginPage.getErrorUPasswordText());
         Assert.assertEquals(expectedErrorMessageText, actualErrorMessageText);
+    }
+
+    @Test
+    public void testLoginFormWithCorrectCredentials() {
+        String userName = "itacamyspotifytest@gmail.com";
+        String password = "Cvbn456))";
+        String authorisedUserName = "user";
+        AuthorizedHomePage authorizedHomePage = new AuthorizedHomePage();
+        new HomePage().openPage()
+                .clickLogIn();
+        LoginPage loginPage = new LoginPage();
+        loginPage.typeUsername(userName)
+                .typePassword(password)
+                .clickLogin();
+        Assert.assertEquals(authorizedHomePage.getAccountMenuButtonText(), authorisedUserName);
     }
 }

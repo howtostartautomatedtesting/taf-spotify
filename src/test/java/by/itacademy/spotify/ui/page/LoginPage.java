@@ -28,9 +28,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='password-error']")
     private WebElement errorPassword;
 
-    @FindBy(xpath ="//button[@class='odcjv30UQnjaTv4sylc0']/span" )
-    private WebElement buttonUser;
-
     public LoginPage typeUsername(String username) {
         waitForElementToBeClickable(inputUsername);
         inputUsername.click();
@@ -71,8 +68,4 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public String getUserName(){
-        waitForElementToBeClickable(buttonUser);
-        return buttonUser.getText();
-    }
 }
