@@ -67,4 +67,5 @@ public class LoginPage extends BasePage {
         inputField.sendKeys(charSequencesDeleteAll);
         return this;
     }
+
 }

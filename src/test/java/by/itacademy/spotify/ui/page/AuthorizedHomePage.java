@@ -27,4 +27,8 @@ public class AuthorizedHomePage extends BasePage {
         waitForElementToBeClickable(buttonLibrary);
         buttonLibrary.click();
     }
+    public String getAccountMenuButtonText(){
+        waitForElementToBeClickable(userName);
+        return userName.getText();
+    }
 }
