@@ -11,32 +11,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayListPage extends AuthorizedHomePage {
+    AuthorizedHomePage authorizedHomePage = new AuthorizedHomePage();
     @FindBy(xpath = "//button[@data-testid='more-button']")
     private WebElement buttonMoreOptions;
-
     @FindBy(xpath = "//button[@class='wCkmVGEQh3je1hrbsFBY']")
     private WebElement buttonPlaylistName;
-
     @FindBy(xpath = "//a[@title='Playlist for Edit Test ']")
     private WebElement buttonOpenTestPlaylist;
-
     @FindBy(xpath = "//*[@class='JUa6JJNj7R_Y3i4P8YUX']//div[.='Yellow Submarine']")
     private WebElement textTestSong;
-
     @FindBy(xpath = "//li[@data-testid='rootlist-item'][1]//div[@class='AINMAUImkAYJd4ertQxy']")
     private WebElement playListItem;
-
     @FindBy(xpath = "//li[@data-testid='rootlist-item'][1]//span")
     private WebElement playListName;
-
     @FindBy(xpath = "//ul/li[5]/button")
     private WebElement buttonDeletePlaylist;
-
     @FindBy(xpath = "//div[@class='encore-light-theme awGNDbf1c8TGBAFR0pv8']//button[last()]")
     private WebElement buttonConfirmDeletePlaylist;
-
     @FindAll(@FindBy(how = How.XPATH, using = "//span[contains(@class,'Type__TypeElement-goli3j-0 gJFKvJ VjIb8SfYTkc4wMpqqj3f')]"))
     private List<WebElement> listOfPlayLists;
+    @FindBy(xpath = " //button[@role='menuitem']//span[text()='Delete']")
+    private WebElement buttonDeleteInMoreOptions;
+
+    @FindBy(xpath = "//button[@aria-label='Remove from Your Library']")
+    private WebElement buttonRemoveFromYourLibrary;
 
     public void clickPlaylistName() {
         buttonPlaylistName.click();
@@ -88,5 +86,54 @@ public class PlayListPage extends AuthorizedHomePage {
             namesPlayListsAsString.add(playlist.getText());
         }
         return namesPlayListsAsString;
+    }
+
+    public PlayListPage clickButtonMoreOptions() {
+        waitForElementToBeClickable(buttonMoreOptions);
+        buttonMoreOptions.click();
+        return this;
+    }
+
+    public PlayListPage clickButtonDeleteInMoreOptions() {
+        waitForElementToBeClickable(buttonDeleteInMoreOptions);
+        buttonDeleteInMoreOptions.click();
+        return this;
+    }
+
+    public PlayListPage clickButtonConfirmDeletePlaylist() {
+        waitForElementToBeClickable(buttonConfirmDeletePlaylist);
+        buttonConfirmDeletePlaylist.click();
+        return this;
+    }
+
+    public PlayListPage clickButtonRemoveFromYourLibrary() {
+        waitForElementToBeClickable(buttonRemoveFromYourLibrary);
+        buttonRemoveFromYourLibrary.click();
+        return this;
+    }
+
+    public PlayListPage deleteAllCreatedPlayLists() {
+        try {
+            while (isDisplayedButtonMadePlaylist()) {
+
+                authorizedHomePage.clickButtonMadePlaylist();
+                clickButtonMoreOptions()
+                        .clickButtonDeleteInMoreOptions()
+                        .clickButtonConfirmDeletePlaylist();
+            }
+        } catch (Exception e) {
+        }
+        return this;
+    }
+
+    public PlayListPage deleteAllNotCreatedPlaylists() {
+        try {
+            while (isDisplayedButtonNotCreatedPlaylist()) {
+                authorizedHomePage.clickButtonNotCreatedPlaylist();
+                new PlayListPage().clickButtonRemoveFromYourLibrary();
+            }
+        } catch (Exception e) {
+        }
+        return this;
     }
 }
