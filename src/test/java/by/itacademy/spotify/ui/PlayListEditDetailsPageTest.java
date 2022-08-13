@@ -40,4 +40,3 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList));
     }
 }
-
