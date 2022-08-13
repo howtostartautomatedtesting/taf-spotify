@@ -1,6 +1,7 @@
 package by.itacademy.spotify.ui.page;
 
 import by.itacademy.spotify.ui.driver.DriverSingleton;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -20,6 +21,17 @@ public class BasePage {
 
     protected WebElement waitForElementToBeClickable(WebElement webElement) {
         return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    protected boolean waitForElementToBeNotVisible(WebElement webElement) {
+        boolean isWebElementNotVisible = false;
+        try {
+            isWebElementNotVisible = new WebDriverWait(driver, 6).until(ExpectedConditions
+                    .invisibilityOf(webElement));
+        } catch (TimeoutException e) {
+            isWebElementNotVisible = true;
+        }
+        return isWebElementNotVisible;
     }
 
     protected WebElement waitForVisibilityOfElement(WebElement webElement) {
