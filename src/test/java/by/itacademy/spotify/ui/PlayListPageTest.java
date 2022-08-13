@@ -5,7 +5,7 @@ import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class PlayListPageTest extends BaseTest {
         Assert.assertFalse(resultListOfPlayList.contains(actualPlayListName));
     }
         @Test
-        public void testCreatePlaylist() throws InterruptedException {
+        public void testCreatePlaylist()  {
             //GIVEN
             HomePage homePage = new HomePage();
             homePage.openPage()

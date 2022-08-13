@@ -18,9 +18,6 @@ public class AuthorizedHomePage extends BasePage {
     @FindBy(xpath = " //div[@class='GlueDropTarget GlueDropTarget--playlists GlueDropTarget--folders']")
     private WebElement buttonNotCreatedPlaylist;
 
-    public void clickCreatePlaylist() {
-        buttonCreatePlaylist.click();
-    }
 
     public void clickSearch() {
         waitForElementToBeClickable(buttonSearch);
