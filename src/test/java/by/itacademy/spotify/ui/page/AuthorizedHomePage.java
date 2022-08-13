@@ -13,10 +13,11 @@ public class AuthorizedHomePage extends BasePage {
     private WebElement buttonSearch;
     @FindBy(xpath = "//a[@href='/collection']")
     private WebElement buttonLibrary;
+    @FindBy(xpath = "//li[@role='listitem']")
+    private WebElement buttonMadePlaylist;
+    @FindBy(xpath = " //div[@class='GlueDropTarget GlueDropTarget--playlists GlueDropTarget--folders']")
+    private WebElement buttonNotCreatedPlaylist;
 
-    public void clickCreatePlaylist() {
-        buttonCreatePlaylist.click();
-    }
 
     public void clickSearch() {
         waitForElementToBeClickable(buttonSearch);
@@ -27,8 +28,43 @@ public class AuthorizedHomePage extends BasePage {
         waitForElementToBeClickable(buttonLibrary);
         buttonLibrary.click();
     }
-    public String getAccountMenuButtonText(){
+
+    public String getAccountMenuButtonText() {
         waitForElementToBeClickable(userName);
         return userName.getText();
+    }
+
+    public boolean isDisplayedButtonMadePlaylist() {
+        return buttonMadePlaylist.isDisplayed();
+    }
+
+    public AuthorizedHomePage clickButtonMadePlaylist() {
+        buttonMadePlaylist.click();
+        return this;
+    }
+
+    public AuthorizedHomePage clickButtonCreatePlaylist() {
+        buttonCreatePlaylist.click();
+        return this;
+    }
+
+    public AuthorizedHomePage waitForButtonCreatePlayList() {
+        waitForElementToBeClickable(buttonCreatePlaylist);
+        return this;
+    }
+
+    public AuthorizedHomePage waitForVisibilePlayList() {
+        waitForVisibilityOfElement(buttonMadePlaylist);
+        return this;
+    }
+
+    public boolean isDisplayedButtonNotCreatedPlaylist() {
+        return buttonNotCreatedPlaylist.isDisplayed();
+    }
+
+    public AuthorizedHomePage clickButtonNotCreatedPlaylist() {
+        waitForElementToBeClickable(buttonNotCreatedPlaylist);
+        buttonNotCreatedPlaylist.click();
+        return this;
     }
 }
