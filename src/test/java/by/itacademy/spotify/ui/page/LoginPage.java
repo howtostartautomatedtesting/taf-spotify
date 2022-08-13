@@ -27,6 +27,8 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//div[@data-testid='password-error']")
     private WebElement errorPassword;
+    @FindBy(xpath = "//div[contains(@class,'Wrapper-sc-62m9tu-0')]//span")
+    WebElement messageIncorrectUsernameOrPassword;
 
     public LoginPage typeUsername(String username) {
         waitForElementToBeClickable(inputUsername);
@@ -68,4 +70,8 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public String getMessageIncorrectUserNameOrPassword() {
+        waitForVisibilityOfElement(messageIncorrectUsernameOrPassword);
+        return messageIncorrectUsernameOrPassword.getText();
+    }
 }

@@ -44,4 +44,20 @@ public class LoginPageTest extends BaseTest {
                 .clickLogin();
         Assert.assertEquals(authorizedHomePage.getAccountMenuButtonText(), authorisedUserName);
     }
+    @Test
+    public void testLoginWithIncorrectCredentials() {
+        String login = "incorrectitacamyspotifytest@gmail.com";
+        String password = "Cvbn456))";
+        String expectedErrorMessage = "Incorrect username or password.";
+        new HomePage()
+                .openPage()
+                .clickLogIn();
+
+        LoginPage loginPage = new LoginPage()
+                .typeUsername(login)
+                .typePassword(password);
+        loginPage.clickLogin();
+
+        Assert.assertEquals(expectedErrorMessage, loginPage.getMessageIncorrectUserNameOrPassword());
+    }
 }
