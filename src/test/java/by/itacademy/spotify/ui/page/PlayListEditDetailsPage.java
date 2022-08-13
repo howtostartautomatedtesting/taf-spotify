@@ -77,6 +77,7 @@ public class PlayListEditDetailsPage extends PlayListPage {
     }
 
     public String getNewUserNamePlayList(String newUserNamePlayList) {
+        waitForElementToBeNotVisible(buttonSave);
         List<WebElement> elementName = driver.findElements(NEW_USER_NAME_PLAYLIST);
         String resultNamePlayList = "Default Name";
         for (WebElement elements : elementName) {

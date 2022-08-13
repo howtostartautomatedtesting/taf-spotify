@@ -15,17 +15,18 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         String userInputDescriptionPlayList = Random.generateText();
         String userName = "itacamyspotifytest@gmail.com";
         String userPassword = "Cvbn456))";
-        PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
-        HomePage homePage = new HomePage();
-        LoginPage login = new LoginPage();
 
+        HomePage homePage = new HomePage();
         homePage.
                 openPage().
                 clickLogIn();
-        login.clickLogin();
+
+        LoginPage login = new LoginPage();
         login.typeUsername(userName);
         login.typePassword(userPassword);
         login.clickLogin();
+
+        PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
         playListEditDetailsPage.
                 clickButtonCookieClose().
                 clickButtonDefaultPlayList().
@@ -39,3 +40,4 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getNewUserNamePlayList(userInputNamePlayList));
     }
 }
+
