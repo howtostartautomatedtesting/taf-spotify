@@ -15,23 +15,25 @@ public class PlayListEditDetailsPageTest extends BaseTest {
         String userInputDescriptionPlayList = Random.generateText();
         String userName = "itacamyspotifytest@gmail.com";
         String userPassword = "Cvbn456))";
-        PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
-        HomePage homePage = new HomePage();
-        LoginPage login = new LoginPage();
 
-        homePage.
-                openPage().
-                clickLogIn();
-        login.clickLogin();
-        login.typeUsername(userName);
-        login.typePassword(userPassword);
-        login.clickLogin();
-        playListEditDetailsPage.
-                clickButtonCookieClose().
-                clickButtonDefaultPlayList().
-                typeName(userInputNamePlayList).
-                typeDescription(userInputDescriptionPlayList).
-                clickSave();
+        HomePage homePage = new HomePage();
+        homePage
+                .openPage()
+                .clickLogIn();
+
+        LoginPage login = new LoginPage();
+        login
+                .typeUsername(userName)
+                .typePassword(userPassword)
+                .clickLogin();
+
+        PlayListEditDetailsPage playListEditDetailsPage = new PlayListEditDetailsPage();
+        playListEditDetailsPage
+                .clickButtonCookieClose()
+                .clickButtonDefaultPlayList()
+                .typeName(userInputNamePlayList)
+                .typeDescription(userInputDescriptionPlayList)
+                .clickSave();
 
         Assert.assertTrue(playListEditDetailsPage.isDisplayedHeaderDetails());
         Assert.assertEquals(userInputNamePlayList, playListEditDetailsPage.getUserInputNamePlayList());
