@@ -13,6 +13,13 @@ public class AuthorizedHomePage extends BasePage {
     private WebElement buttonSearch;
     @FindBy(xpath = "//a[@href='/collection']")
     private WebElement buttonLibrary;
+    @FindBy(xpath = "//li[@data-testid='rootlist-item'][contains(.,'Playlist for Edit Test')]")
+    private WebElement buttonSidebarOpenTestPlaylist;
+
+    public void clickButtonSidebarOpenTestPlaylist() {
+        waitForElementToBeClickable(buttonSidebarOpenTestPlaylist);
+        buttonSidebarOpenTestPlaylist.click();
+    }
 
     public void clickCreatePlaylist() {
         buttonCreatePlaylist.click();
