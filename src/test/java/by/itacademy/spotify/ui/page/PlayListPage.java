@@ -1,6 +1,7 @@
 package by.itacademy.spotify.ui.page;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -32,10 +33,47 @@ public class PlayListPage extends AuthorizedHomePage {
     private List<WebElement> listOfPlayLists;
     @FindBy(xpath = " //button[@role='menuitem']//span[text()='Delete']")
     private WebElement buttonDeleteInMoreOptions;
-
     @FindBy(xpath = "//button[@aria-label='Remove from Your Library']")
     private WebElement buttonRemoveFromYourLibrary;
+    @FindAll(@FindBy( how = How.XPATH, using = "//a[@data-testid='internal-track-link']"))
+    private List<WebElement> listOfSongs;
+    @FindBy(xpath = "//span[normalize-space()='Remove from this playlist']")
+    private WebElement buttonDeleteFromPlaylist;
+    @FindBy(xpath = "//div[@data-testid='playlist-tracklist']")
+    private WebElement playlistTable;
+    @FindBy(xpath = "//div[@data-testid='playlist-tracklist']//div[@role='row'][@aria-rowindex='2']//button[@data-testid='more-button']")
+    private WebElement buttonFirstTrackOptions;
 
+    public void clickButtonDeleteFromPlaylist() {
+        waitForVisibilityOfElement(buttonDeleteFromPlaylist);
+        buttonDeleteFromPlaylist.click();
+    }
+
+    public void clickFirstTrackOptions() {
+        waitForElementToBeClickable(buttonMoreOptions);
+        buttonFirstTrackOptions.click();
+
+    }
+
+    public List<String> getListOfSongLinks() {
+        List<String> songLinks = new ArrayList<>();
+        waitForVisibilityOfElement(playlistTable);
+        for (WebElement song : listOfSongs) {
+            String songLink = song.getAttribute("href");
+            songLinks.add(songLink);
+        }
+        return songLinks;
+    }
+
+    public void waitForTrackListUpdate() throws InterruptedException {
+        Thread.sleep(2000);
+    }
+
+    public void hoverOverFirstTrackOptionsButtonElement()
+    {
+        Actions action = new Actions(driver);
+        action.moveToElement(buttonFirstTrackOptions).perform();
+    }
     public void clickPlaylistName() {
         buttonPlaylistName.click();
     }

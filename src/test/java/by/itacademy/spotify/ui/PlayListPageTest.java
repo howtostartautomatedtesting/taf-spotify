@@ -57,4 +57,28 @@ public class PlayListPageTest extends BaseTest {
             Assert.assertTrue(authorizedHomePage.isDisplayedButtonMadePlaylist());
             playListPage.deleteAllCreatedPlayLists();
         }
+
+    @Test
+    public void testRemoveSong() throws InterruptedException {
+        //GIVEN
+        new HomePage().openPage()
+                .clickLogIn();
+        new LoginPage().typeUsername(USERNAME)
+                .typePassword(PASSWORD)
+                .clickLogin();
+        AuthorizedHomePage authorizedHomePage = new AuthorizedHomePage();
+        authorizedHomePage.clickButtonSidebarOpenTestPlaylist();
+
+        //WHEN
+        PlayListPage playListPage = new PlayListPage();
+        List<String> trackListBeforeRemoval = playListPage.getListOfSongLinks();
+        playListPage.hoverOverFirstTrackOptionsButtonElement();
+        playListPage.clickFirstTrackOptions();
+        playListPage.clickButtonDeleteFromPlaylist();
+        playListPage.waitForTrackListUpdate();
+        List<String> trackListAfterRemoval = playListPage.getListOfSongLinks();
+
+        //THEN
+        Assert.assertNotEquals(trackListAfterRemoval, trackListBeforeRemoval);
+    }
 }
