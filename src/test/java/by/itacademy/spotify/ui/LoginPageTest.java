@@ -3,6 +3,7 @@ package by.itacademy.spotify.ui;
 import by.itacademy.spotify.ui.page.AuthorizedHomePage;
 import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
+import by.itacademy.spotify.ui.utils.ForbiddenCharacters;
 import by.itacademy.spotify.ui.utils.Random;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -59,5 +60,19 @@ public class LoginPageTest extends BaseTest {
         loginPage.clickLogin();
 
         Assert.assertEquals(expectedErrorMessage, loginPage.getMessageIncorrectUserNameOrPassword());
+    }
+
+    @Test
+    public void testLoginWithForbiddenCharacterInUsername() {
+        // GIVEN
+        String userName = ForbiddenCharacters.getForbiddenCharacter();
+        String expectedErrorUsernameText = "Forbidden character(s) " + userName + " in username.";
+        new HomePage().openPage()
+                .clickLogIn();
+        // WHEN
+        LoginPage loginPage = new LoginPage();
+        loginPage.typeUsername(userName);
+        // THEN
+        Assert.assertEquals(expectedErrorUsernameText, loginPage.getErrorUsernameText());
     }
 }
