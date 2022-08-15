@@ -12,8 +12,6 @@ public class ForbiddenCharacters {
         forbiddenCharacters.add("&");
         forbiddenCharacters.add(":");
         int randomIndex = new Random().nextInt(forbiddenCharacters.size());
-        System.out.println(randomIndex);
-        System.out.println(forbiddenCharacters.get(randomIndex));
         return forbiddenCharacters.get(randomIndex);
     }
 }
