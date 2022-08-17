@@ -1,5 +1,6 @@
 package by.itacademy.spotify.ui.page;
 
+import by.itacademy.spotify.ui.entity.User;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,16 @@ public class LoginPage extends BasePage {
         waitForElementToBeClickable(inputPassword);
         inputPassword.sendKeys(password);
         return this;
+    }
+
+    public LoginPage authorize(User user){
+        waitForElementToBeClickable(inputUsername);
+        inputUsername.sendKeys(user.getUsername());
+        waitForElementToBeClickable(inputPassword);
+        inputPassword.sendKeys(user.getPassword());
+        waitForElementToBeClickable(buttonLogin);
+        buttonLogin.click();
+        return new LoginPage();
     }
 
     public void clickLogin() {

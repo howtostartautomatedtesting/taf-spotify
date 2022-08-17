@@ -35,7 +35,7 @@ public class PlayListPage extends AuthorizedHomePage {
     private WebElement buttonDeleteInMoreOptions;
     @FindBy(xpath = "//button[@aria-label='Remove from Your Library']")
     private WebElement buttonRemoveFromYourLibrary;
-    @FindAll(@FindBy( how = How.XPATH, using = "//a[@data-testid='internal-track-link']"))
+    @FindAll(@FindBy(how = How.XPATH, using = "//a[@data-testid='internal-track-link']"))
     private List<WebElement> listOfSongs;
     @FindBy(xpath = "//span[normalize-space()='Remove from this playlist']")
     private WebElement buttonDeleteFromPlaylist;
@@ -43,6 +43,14 @@ public class PlayListPage extends AuthorizedHomePage {
     private WebElement playlistTable;
     @FindBy(xpath = "//div[@data-testid='playlist-tracklist']//div[@role='row'][@aria-rowindex='2']//button[@data-testid='more-button']")
     private WebElement buttonFirstTrackOptions;
+    @FindBy(xpath = "//button[@data-testid='create-playlist-button']")
+    private WebElement buttonCreatePlayList;
+
+    public PlayListPage clickButtonCreatePlayList() {
+        waitForVisibilityOfElement(buttonCreatePlayList);
+        buttonCreatePlayList.click();
+        return new PlayListPage();
+    }
 
     public void clickButtonDeleteFromPlaylist() {
         waitForVisibilityOfElement(buttonDeleteFromPlaylist);
@@ -52,7 +60,6 @@ public class PlayListPage extends AuthorizedHomePage {
     public void clickFirstTrackOptions() {
         waitForElementToBeClickable(buttonMoreOptions);
         buttonFirstTrackOptions.click();
-
     }
 
     public List<String> getListOfSongLinks() {
@@ -69,11 +76,11 @@ public class PlayListPage extends AuthorizedHomePage {
         Thread.sleep(2000);
     }
 
-    public void hoverOverFirstTrackOptionsButtonElement()
-    {
+    public void hoverOverFirstTrackOptionsButtonElement() {
         Actions action = new Actions(driver);
         action.moveToElement(buttonFirstTrackOptions).perform();
     }
+
     public void clickPlaylistName() {
         buttonPlaylistName.click();
     }
