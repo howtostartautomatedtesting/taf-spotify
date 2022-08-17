@@ -7,9 +7,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@data-testid='login-button']")
     private WebElement buttonLogIn;
 
-    public HomePage clickLogIn() {
+    public LoginPage clickLogIn() {
         buttonLogIn.click();
-        return this;
+        return new LoginPage();
     }
 
     public HomePage openPage() {

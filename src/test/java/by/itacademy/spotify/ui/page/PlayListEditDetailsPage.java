@@ -17,7 +17,7 @@ public class PlayListEditDetailsPage extends PlayListPage {
     private WebElement headerEditDetails;
     @FindBy(xpath = "//input[@data-testid='playlist-edit-details-name-input']")
     private WebElement inputName;
-    @FindBy(xpath = "//textarea[@data-testid='playlist-edit-details-description-input']                                                                                        ")
+    @FindBy(xpath = "//textarea[@data-testid='playlist-edit-details-description-input']")
     private WebElement inputDescription;
     @FindBy(xpath = "//button[@data-testid='playlist-edit-details-save-button']")
     private WebElement buttonSave;
@@ -29,7 +29,7 @@ public class PlayListEditDetailsPage extends PlayListPage {
     public PlayListEditDetailsPage clickButtonDefaultPlayList() {
         waitForVisibilityOfElement(defaultPlaylist);
         actions.contextClick(defaultPlaylist).build().perform();
-        waitForVisibilityOfElement(buttonChangeInfoPlayList);
+        waitForVisibilityOfElement(buttonChangeInfoPlayList).click();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
         actions.sendKeys(Keys.ARROW_DOWN).build().perform();
@@ -55,7 +55,6 @@ public class PlayListEditDetailsPage extends PlayListPage {
     public PlayListEditDetailsPage clickSave() {
         buttonSave.click();
         return this;
-
     }
 
     public PlayListEditDetailsPage clickButtonCookieClose() {
