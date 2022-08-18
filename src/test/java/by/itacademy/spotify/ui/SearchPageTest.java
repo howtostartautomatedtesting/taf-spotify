@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SearchPageTest extends BaseTest {
+public class SearchPageTest extends AuthorizedUserBaseTest {
     WebDriver webDriver;
 
     private final String URL = "https://open.spotify.com/";

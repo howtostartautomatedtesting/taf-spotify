@@ -8,7 +8,7 @@ import by.itacademy.spotify.ui.utils.UserCreator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PlayListEditDetailsPageTest extends BaseTest {
+public class PlayListEditDetailsPageTest extends AuthorizedUserBaseTest {
     PlayListPage playListPage;
     PlayListEditDetailsPage playListEditDetailsPage;
 
