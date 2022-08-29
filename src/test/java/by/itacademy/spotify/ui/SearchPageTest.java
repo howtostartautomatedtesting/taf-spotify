@@ -3,11 +3,12 @@ package by.itacademy.spotify.ui;
 import by.itacademy.spotify.ui.page.*;
 import by.itacademy.spotify.ui.steps.AuthorizedStep;
 import by.itacademy.spotify.ui.utils.UserCreator;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchPageTest extends AuthorizedUserBaseTest {
-    WebDriver webDriver;
+     WebDriver webDriver;
 
     private final String SONG_NAME = "Yellow Submarine";
     PlayListPage playListPage;
