@@ -1,47 +1,44 @@
 package by.itacademy.spotify.ui;
 
-import by.itacademy.spotify.ui.driver.DriverSingleton;
 import by.itacademy.spotify.ui.page.*;
-import org.openqa.selenium.WebDriver;
+import by.itacademy.spotify.ui.steps.AuthorizedStep;
+import by.itacademy.spotify.ui.utils.UserCreator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchPageTest extends BaseTest {
-    WebDriver webDriver;
 
-    private final String URL = "https://open.spotify.com/";
-    private final String SONGNAME = "Yellow Submarine";
-    private final String USERNAME = "itacamyspotifytest@gmail.com";
-    private final String PASSWORD = "Cvbn456))";
+    private final String SONG_NAME = "Yellow Submarine";
+    PlayListPage playListPage;
+    AuthorizedHomePage authorizedHomePage;
+    PlayListEditDetailsPage playListEditDetailsPage;
+    SearchPage searchPage;
 
     @Test
-    public void testSearchAndAddSong() {
+    public void testSearchAndAddSong(){
         // GIVEN
-        webDriver = DriverSingleton.getDriver();
-        webDriver.get(URL);
-        webDriver.manage()
-                .window()
-                .maximize();
-        HomePage homePage = new HomePage();
-        homePage.clickLogIn();
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUsername(USERNAME);
-        loginPage.typePassword(PASSWORD);
-        loginPage.clickLogin();
+        AuthorizedStep.logIn(UserCreator.createDefaultUser());
 
         // WHEN
-        AuthorizedHomePage authorizedHomePage = new AuthorizedHomePage();
+        playListPage = new PlayListPage()
+                .clickButtonCreatePlayList();
+
+        playListEditDetailsPage = new PlayListEditDetailsPage()
+                .clickButtonCookieClose();
+
+        authorizedHomePage = new AuthorizedHomePage();
         authorizedHomePage.clickSearch();
-        SearchPage searchPage = new SearchPage();
-        searchPage.typeSearchQuery(SONGNAME)
+
+        searchPage = new SearchPage();
+        searchPage.typeSearchQuery(SONG_NAME)
                 .clickButtonMoreFirstRow()
                 .clickButtonAddToPlaylist()
-                .clickButtonAddToTestPlayList();
+                .clickButtonSearchNamePlayList();
+
+        playListPage = new PlayListPage()
+                .clickButtonNamePlayList();
 
         // THEN
-        authorizedHomePage.clickButtonLibrary();
-        PlayListPage playListPage = new PlayListPage();
-        playListPage.clickButtonTestPlaylist();
-        Assert.assertTrue(playListPage.isTextTestSong());
+        Assert.assertEquals(playListPage.getTitleSongOfPlayList(), SONG_NAME);
     }
 }
