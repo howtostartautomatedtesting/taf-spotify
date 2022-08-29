@@ -6,7 +6,8 @@ import by.itacademy.spotify.ui.utils.UserCreator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SearchPageTest extends BaseTest {
+public class SearchPageTest extends AuthorizedUserBaseTest {
+    WebDriver webDriver;
 
     private final String SONG_NAME = "Yellow Submarine";
     PlayListPage playListPage;

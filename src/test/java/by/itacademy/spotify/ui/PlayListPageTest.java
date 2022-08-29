@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class PlayListPageTest extends BaseTest {
+public class PlayListPageTest extends AuthorizedUserBaseTest {
     String USERNAME = "itacamyspotifytest@gmail.com";
     String PASSWORD = "Cvbn456))";
     @Test
@@ -55,7 +55,6 @@ public class PlayListPageTest extends BaseTest {
                     .waitForVisibilePlayList();
             //THEN
             Assert.assertTrue(authorizedHomePage.isDisplayedButtonMadePlaylist());
-            playListPage.deleteAllCreatedPlayLists();
         }
 
     @Test
