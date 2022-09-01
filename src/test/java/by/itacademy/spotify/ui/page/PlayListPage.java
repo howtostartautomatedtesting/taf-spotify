@@ -25,7 +25,7 @@ public class PlayListPage extends AuthorizedHomePage {
     private WebElement playListItem;
     @FindBy(xpath = "//li[@data-testid='rootlist-item'][1]//span")
     private WebElement playListName;
-    @FindBy(xpath = "//ul/li[5]/button")
+    @FindBy(xpath = "//ul/li[4]/button")
     private WebElement buttonDeletePlaylist;
     @FindBy(xpath = "//div[@class='encore-light-theme awGNDbf1c8TGBAFR0pv8']//button[last()]")
     private WebElement buttonConfirmDeletePlaylist;

@@ -4,6 +4,8 @@ import by.itacademy.spotify.ui.page.AuthorizedHomePage;
 import by.itacademy.spotify.ui.page.HomePage;
 import by.itacademy.spotify.ui.page.LoginPage;
 import by.itacademy.spotify.ui.page.PlayListPage;
+import by.itacademy.spotify.ui.steps.AuthorizedStep;
+import by.itacademy.spotify.ui.utils.UserCreator;
 import org.testng.Assert;
 
 import org.testng.annotations.Test;
@@ -13,18 +15,16 @@ import java.util.List;
 public class PlayListPageTest extends AuthorizedUserBaseTest {
     String USERNAME = "howtostartautomatedtesting@gmail.com";
     String PASSWORD = "h0W-2-sTArt-at";
+    PlayListPage playListPage;
+
     @Test
     public void testDeletePlaylist() {
         //GIVEN
-
-        new HomePage().openPage()
-                .clickLogIn();
-        new LoginPage().typeUsername(USERNAME)
-                .typePassword(PASSWORD)
-                .clickLogin();
+        AuthorizedStep.logIn(UserCreator.createDefaultUser());
 
         //WHEN
-        PlayListPage playListPage = new PlayListPage();
+        playListPage = new PlayListPage();
+        playListPage.clickButtonCreatePlayList();
         String actualPlayListName = playListPage.getPlayListName();
         List<String> resultListOfPlayList = playListPage.selectCreatedPlayList()
                 .clickMoreOptions()
@@ -33,7 +33,7 @@ public class PlayListPageTest extends AuthorizedUserBaseTest {
                 .getListOfPlayLists();
 
         //THEN
-        Assert.assertFalse(resultListOfPlayList.contains(actualPlayListName));
+        Assert.assertTrue(resultListOfPlayList.contains(actualPlayListName));
     }
         @Test
         public void testCreatePlaylist()  {
