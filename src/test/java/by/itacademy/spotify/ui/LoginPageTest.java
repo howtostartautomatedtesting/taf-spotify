@@ -32,9 +32,9 @@ public class LoginPageTest extends BaseTest {
 
     @Test
     public void testLoginFormWithCorrectCredentials() {
-        String userName = "itacamyspotifytest@gmail.com";
-        String password = "Cvbn456))";
-        String authorisedUserName = "user";
+        String userName = "howtostartautomatedtesting@gmail.com";
+        String password = "h0W-2-sTArt-at";
+        String authorisedUserName = "howtostartautomatedtesting";
         AuthorizedHomePage authorizedHomePage = new AuthorizedHomePage();
         new HomePage().openPage()
                 .clickLogIn();

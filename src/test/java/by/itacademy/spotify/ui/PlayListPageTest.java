@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class PlayListPageTest extends AuthorizedUserBaseTest {
-    String USERNAME = "itacamyspotifytest@gmail.com";
-    String PASSWORD = "Cvbn456))";
+    String USERNAME = "howtostartautomatedtesting@gmail.com";
+    String PASSWORD = "h0W-2-sTArt-at";
     @Test
     public void testDeletePlaylist() {
         //GIVEN
