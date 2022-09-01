@@ -45,6 +45,21 @@ public class PlayListPage extends AuthorizedHomePage {
     private WebElement buttonFirstTrackOptions;
     @FindBy(xpath = "//button[@data-testid='create-playlist-button']")
     private WebElement buttonCreatePlayList;
+    @FindBy(xpath = "//div[@class='AINMAUImkAYJd4ertQxy']")
+    private WebElement buttonNamePlayList;
+    @FindBy(xpath = "//a[@class='t_yrXoUO3qGsJS4Y6iXX']//div[@class='Type__TypeElement-goli3j-0 gwYBEX t_yrXoUO3qGsJS4Y6iXX standalone-ellipsis-one-line']")
+    private WebElement titleSongOfPlayList;
+
+    public PlayListPage clickButtonNamePlayList() {
+        waitForVisibilityOfElement(buttonNamePlayList);
+        buttonNamePlayList.click();
+        return new PlayListPage();
+    }
+
+    public String getTitleSongOfPlayList(){
+        waitForVisibilityOfElement(titleSongOfPlayList);
+        return titleSongOfPlayList.getText();
+    }
 
     public PlayListPage clickButtonCreatePlayList() {
         waitForVisibilityOfElement(buttonCreatePlayList);
