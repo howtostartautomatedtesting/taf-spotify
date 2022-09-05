@@ -19,13 +19,13 @@ public class SearchPage extends AuthorizedHomePage {
     private WebElement divFirstSearchRow;
     @FindBy(xpath = "//div[@aria-rowindex='1']/div/div/button[@data-testid='more-button']")
     private WebElement buttonMoreFirstRow;
-    @FindBy(xpath = "(//button[@role='menuitem'])[5]")
+    @FindBy(xpath = "(//button[@role='menuitem'])[4]")
     private WebElement buttonAddToPlaylist;
     @FindBy(xpath = "//*[@class='wC9sIed7pfp47wZbmU6m']//span[.='Playlist for Edit Test ']")
     private WebElement buttonAddToTestPlaylist;
     @FindBy(xpath = "//input[@role='searchbox']")
     private WebElement buttonSearchPlayList;
-    @FindBy(xpath = "//div[@class='eelA_0lUVXP3DXSyqSl6']//li[@class='DuEPSADpSwCcO880xjUG'][2]")
+    @FindBy(xpath = "//div[@class='i8EjndRQjYlli0aLGYEm']//li[@class='DuEPSADpSwCcO880xjUG'][2]")
     private WebElement buttonSearchNamePlayList;
 
 
